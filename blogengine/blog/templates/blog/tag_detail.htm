@@ -1,0 +1,20 @@
+{% extends 'blog/base.htm' %}
+
+{% block title %}
+    {{tag.title}} - {{block.super}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="mb-5">
+       Posts with "{{tag.title|title}}" tag
+    </h1>
+
+    {% for post in tag.posts.all %}
+       {% include 'blog/includes/post_card_template.htm' %}
+    {% endfor %}
+
+    <a href="{{ tag.get_update_url }}"><button type="submit" class="btn btn-primary">Edit Tag</button></a>
+    <a href="{{ tag.get_delete_url }}"><button type="submit" class="btn btn-danger">Delete Tag</button></a>
+
+
+{% endblock %}

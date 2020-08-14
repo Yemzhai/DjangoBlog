@@ -1,0 +1,13 @@
+{% extends 'blog/base.htm' %}
+
+
+
+{%block content%}
+    <h1 class="mb-4">Posts:</h1>
+    
+    {% for post in pages.object_list %}
+        {% include 'blog/includes/post_card_template.htm' %}
+    {% endfor %}
+
+        <h3>{{post}}<br></h3>
+{%endblock%}

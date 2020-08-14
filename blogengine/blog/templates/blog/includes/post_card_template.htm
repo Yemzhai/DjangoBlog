@@ -1,0 +1,18 @@
+<div class="card text-center mb-5">
+    <div class="card-header">
+        <h4>{{post.title}}</h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.description}}</h5>
+        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read</a>   <!--{% url 'post_detail_url' slug=post.slug %}-->
+    </div>
+    <div class="card-footer text-muted">
+        Tags:
+        {%for tag in post.tags.all %}
+            <a href="{{tag.get_absolute_url}}">{{tag.title}}</a>;
+        {%endfor%}
+    </div>
+    <div class="card-footer text-muted">
+        {{post.date_pub}}
+    </div>
+</div>
